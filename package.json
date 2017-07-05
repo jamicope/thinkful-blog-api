@@ -3,30 +3,26 @@
     "version": "1.0.0",
     "description": "thinkful blog api challenge",
     "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
     "dependencies": {
         "body-parser": "^1.15.2",
         "express": "^4.12.4",
-        "mongodb": "^2.2.11",
-        "mongoose": "^4.7.1",
         "morgan": "^1.7.0",
         "uuid": "^2.0.3"
     },
-    "devDependencies": {
-        "chai": "^3.5.0",
-        "chai-http": "^3.0.0",
-        "faker": "^3.1.0",
-        "mocha": "^3.2.0"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
-    },
+    "keywords": [
+        "node",
+        "hyperdev",
+        "express"
+    ],
+    "author": "Jami Cope",
+    "license": "ISC",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/jamicope/thinkful-blog-api.git"
     },
-    "author": "Jami Cope",
-    "license": "ISC",
     "bugs": {
         "url": "https://github.com/jamicope/thinkful-blog-api/issues"
     },
