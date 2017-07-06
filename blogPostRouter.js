@@ -4,10 +4,12 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
-const {blogPosts} = require('./models');
+const {
+    BlogPosts
+} = require('./models');
 
 BlogPosts.create('Test blog', 'This is just a test to see if I can relaly do this!', 'Jami Cope');
-BlogPosts.create('Blog number 2', 'Now I can celebrate a little because it makes sense', 'Jami' );
+BlogPosts.create('Blog number 2', 'Now I can celebrate a little because it makes sense', 'Jami');
 
 router.get('/', (req, res) => {
     res.json(BlogPosts.get());
@@ -15,12 +17,12 @@ router.get('/', (req, res) => {
 
 router.post('/', jsonParser, (req, res) => {
     const requiredFields = ['title', 'content', 'author'];
-    for (let i=0; i< requiredFields.length; i++) {
+    for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
         if (!(field in req.body)) {
-            const message = `Missing \ `${field}\` in request body`
+            const message = `Missing \`${field}\` in request body`
             console.error(message);
-        return res.status(400).send(message);
+            return res.status(400).send(message);
         }
     }
 
@@ -36,23 +38,23 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', jsonParser, (req, res) => {
     const requiredFields = ['title', 'content', 'author', 'publishDate', 'id'];
-    for (let i=0; i<requiredFields.length; i++) {
+    for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
-        if(!(field in req.body)) {
-            const message = `Missing \ `${field}\` in request body`
+        if (!(field in req.body)) {
+            const message = `Missing \`${field}\` in request body`
             console.error(message);
-        return res.status(400).send(message);
+            return res.status(400).send(message);
         }
     }
 
     if (req.params.id !== req.body.id) {
-    const message = ( `Request path id (${req.params.id}) and request body id `
-                    `(${req.body.id}) must match`);
-    console.error(message);
-    return res.status(400).send(message);
-}
+        const message = (`Request path id (${req.params.id}) and request body id `
+            `(${req.body.id}) must match`);
+        console.error(message);
+        return res.status(400).send(message);
+    }
 
-    console.log(Updating blog item \ `{req.params.id}\``);
+    console.log(`Updating blog item \`{req.params.id}\``);
     const updatedItem = BlogPosts.update({
         id: req.params.id,
         title: req.body.title,
@@ -60,7 +62,7 @@ router.put('/:id', jsonParser, (req, res) => {
         author: req.body.author,
         publishDate: req.body.publishDate,
     });
-res.status(204).json(updatedItem);
+    res.status(204).json(updatedItem);
 })
 
 module.exports = router;
