@@ -29,7 +29,7 @@ describe('BlogPosts', function () {
                 res.body.length.sould.be.above(0);
                 res.body.forEach(function (item) {
                     item.should.be.a('object');
-                    item should.have.all.keys(
+                    item.should.have.all.keys(
                         'id', 'title', 'content', 'author', 'publishDate');
                 });
             });

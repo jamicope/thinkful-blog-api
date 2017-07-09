@@ -1,0 +1,6 @@
+deploy:
+  provider: heroku
+  api_key: 7b12833c-a02c-4012-8f95-6c19e787b573
+  app: npm install
+  on:
+    repo: jamicope/thinkful-blog-api
