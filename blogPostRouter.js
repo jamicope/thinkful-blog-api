@@ -8,7 +8,7 @@ const {
     BlogPosts
 } = require('./models');
 
-BlogPosts.create('Test blog', 'This is just a test to see if I can relaly do this!', 'Jami Cope');
+BlogPosts.create('Test blog', 'This is just a test to see if I can really do this!', 'Jami Cope');
 BlogPosts.create('Blog number 2', 'Now I can celebrate a little because it makes sense', 'Jami');
 
 router.get('/', (req, res) => {
