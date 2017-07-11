@@ -8,16 +8,22 @@ function StorageException(message) {
 const mongoose = require('mongoose');
 
 const blogPostsSchema = mongoose.Schema({
-    title: {type: String, required: true},
-    content: {type: String, required: true},
+    title: {
+        type: String,
+        required: true
+    },
+    content: {
+        type: String,
+        required: true
+    },
     author: {
         firstName: String,
-        lastName: String;
+        lastName: String
     },
 });
 
-    restaurantSchema.virtual('authorName').get(function() {
-        return `${this.author.firstName} ${this.author.lastName}`.trim()};
+blogPostsSchema.virtual('authorName').get(function () {
+    return `${this.author.firstName} ${this.author.lastName}`.trim()
 });
 
 
